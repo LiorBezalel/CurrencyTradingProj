@@ -1,0 +1,33 @@
+﻿<Window x:Class="UI_Layer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Currency Trading" Height="400" Width="600">
+    <Grid>
+        <DataGrid x:Name="CurrencyGrid"
+                  ItemsSource="{Binding CurrencyPairs}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  HeadersVisibility="Column"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  Margin="10"
+                  ColumnWidth="*"
+                  FontSize="16">
+            <DataGrid.Resources>
+                <!-- סגנון שממרכז את הטקסט בתוך כל תא -->
+                <Style TargetType="DataGridCell">
+                    <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="From" Binding="{Binding FromCurrency}" />
+                <DataGridTextColumn Header="To" Binding="{Binding ToCurrency}" />
+                <DataGridTextColumn Header="Min" Binding="{Binding MinValue}" />
+                <DataGridTextColumn Header="Max" Binding="{Binding MaxValue}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
